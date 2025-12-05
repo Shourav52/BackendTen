@@ -42,6 +42,15 @@ async function run() {
       const result = await petService.find(query).toArray();
       res.send(result)
      })
+
+     app.get('/services/:id', async(req, res)=>{
+       const id = req.params
+       console.log(id);
+
+        const query = {_id: new ObjectId(id)}
+       const result = await petService.findOne(query)
+       res.send(result);
+     })
     
 
     await client.db("admin").command({ ping: 1 });
