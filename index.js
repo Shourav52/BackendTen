@@ -22,6 +22,7 @@ async function run() {
     await client.connect();
     const database = client.db('petService');
     const petService = database.collection('service');
+    const ordersCollections = database.collection('orders');
     app.post('/services', async (req, res)=>{
       const data = req.body;
      data.createdAt = new Date();
